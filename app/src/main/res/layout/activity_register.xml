@@ -13,8 +13,8 @@
 
         <ImageView
             android:id="@+id/btnBack"
-            android:layout_marginTop="0px"
-            android:layout_marginLeft="0px"
+            android:layout_marginTop="10px"
+            android:layout_marginLeft="-130px"
             android:layout_marginRight="438px"
             android:layout_width="24dp"
             android:layout_height="24dp"
@@ -30,7 +30,7 @@
             android:textSize="35sp"
             android:textStyle="bold"
             android:textColor="#1B5E20"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="150dp"
             android:fontFamily="sans-serif" />
 
         <!-- Input: Full Name -->
@@ -111,13 +111,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginLeft="26dp">
 
             <TextView
                 android:id="@+id/loginText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
+                android:layout_marginStart="65dp"
                 android:fontFamily="sans-serif"
                 android:text="Already have an account?"
                 android:textColor="#000000"
@@ -127,9 +129,10 @@
                 android:id="@+id/loginLink"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="80dp"
-                android:layout_marginStart="40dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="60dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
                 android:fontFamily="sans-serif"
                 android:text="Login"
                 android:textColor="#1B5E20"
@@ -142,7 +145,7 @@
             android:id="@+id/bottomLogo"
             android:layout_width="45dp"
             android:layout_height="45dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="200dp"
             android:src="@drawable/logo"
             android:layout_gravity="center" />
 

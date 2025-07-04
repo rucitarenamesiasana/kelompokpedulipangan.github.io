@@ -13,8 +13,8 @@
 
         <ImageView
             android:id="@+id/btnBack"
-            android:layout_marginTop="20px"
-            android:layout_marginLeft="0px"
+            android:layout_marginTop="10px"
+            android:layout_marginLeft="-130px"
             android:layout_marginRight="438px"
             android:layout_width="24dp"
             android:layout_height="24dp"
@@ -30,7 +30,7 @@
             android:textSize="35sp"
             android:textStyle="bold"
             android:textColor="#1B5E20"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="200dp"
             android:fontFamily="sans-serif" />
 
         <!-- Subjudul -->
@@ -120,7 +120,7 @@
             android:id="@+id/bottomLogo"
             android:layout_width="45dp"
             android:layout_height="45dp"
-            android:layout_marginTop="170dp"
+            android:layout_marginTop="268dp"
             android:src="@drawable/logo"
             android:layout_gravity="center" />
 

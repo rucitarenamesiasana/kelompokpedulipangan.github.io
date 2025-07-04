@@ -7,27 +7,34 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:orientation="vertical"
-        android:gravity="center_horizontal">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
 
-        <!-- Ilustrasi gambar -->
-        <ImageView
-            android:id="@+id/ivIllustration"
+
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="500dp"
-            android:src="@drawable/onboarding" />
+            android:layout_height="match_parent"
+            android:background="@color/white">
 
 
+
+            <!-- Ilustrasi gambar -->
+            <ImageView
+                android:id="@+id/ivIllustration"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/onboarding" />
+
+        </FrameLayout>
 
         <!-- Konten bagian bawah dengan background putih -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="-30dp"
-            android:gravity="center_horizontal"
             android:orientation="vertical"
+            android:gravity="center_horizontal"
             android:paddingHorizontal="32dp"
             android:paddingTop="0dp"
             android:paddingBottom="0dp">
@@ -37,55 +44,55 @@
                 android:id="@+id/tvHeadline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
+                android:text="Selamatkan Makanan,\nSelamatkan Masa Depan"
+                android:textSize="25sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
                 android:gravity="center"
                 android:lineSpacingExtra="4dp"
-                android:text="Selamatkan Makanan,\nSelamatkan Masa Depan"
-                android:textColor="@color/black"
-                android:textSize="25sp"
-                android:textStyle="bold" />
+                android:layout_marginBottom="12dp" />
 
             <!-- Subtitle dengan warna hijau -->
             <TextView
                 android:id="@+id/tvSubHeadlineColored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="48dp"
-                android:gravity="center"
                 android:text="Save Food, Save The Future"
-                android:textColor="#4CAF50"
                 android:textSize="17sp"
-                android:textStyle="bold" />
+                android:textColor="#4CAF50"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginBottom="48dp" />
 
             <!-- Tombol Login & Register -->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:gravity="center">
 
                 <Button
                     android:id="@+id/btnLogin"
                     android:layout_width="130dp"
                     android:layout_height="50dp"
-                    android:layout_marginEnd="20dp"
-                    android:background="@drawable/button_green_rounded"
-                    android:backgroundTint="@color/green_200"
                     android:text="Login"
-                    android:textColor="@color/white"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:backgroundTint="@color/green_200"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/button_green_rounded" />
 
                 <Button
                     android:id="@+id/btnRegister"
                     android:layout_width="130dp"
                     android:layout_height="50dp"
-                    android:background="@drawable/button_green_rounded"
-                    android:backgroundTint="@color/green_200"
                     android:text="Register"
-                    android:textColor="@color/white"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:backgroundTint="@color/green_200"
+                    android:background="@drawable/button_green_rounded" />
 
             </LinearLayout>
 

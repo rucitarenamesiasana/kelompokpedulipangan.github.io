@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.pedulipangan.ui.login.login_Activity;
+
 public class onboarding_Activity extends AppCompatActivity {
 
     Button btnLogin, btnRegister;

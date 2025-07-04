@@ -7,6 +7,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.pedulipangan.ui.login.login_Activity;
+
 public class register_Activity extends AppCompatActivity {
 
     ImageView btnBack;

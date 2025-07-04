@@ -1,4 +1,4 @@
-package com.example.pedulipangan;
+package com.example.pedulipangan.ui.login;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.pedulipangan.R;
+import com.example.pedulipangan.onboarding_Activity;
+import com.example.pedulipangan.register_Activity;
 
 public class login_Activity extends AppCompatActivity {
 

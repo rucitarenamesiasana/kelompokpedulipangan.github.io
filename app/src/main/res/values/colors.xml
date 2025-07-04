@@ -3,10 +3,10 @@
     <color name="green_200">#307331</color>
     <color name="green">#798e6f</color>
     <color name="blue">#0060E1</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
+    <color name="green_light">#4B4B4B</color>
+    <color name="red_fade">#F69494</color>
+    <color name="red">#FF0000</color>
+    <color name="green_fade">#88AF88</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>
