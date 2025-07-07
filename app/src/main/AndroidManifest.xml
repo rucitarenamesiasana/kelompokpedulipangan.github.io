@@ -23,7 +23,7 @@
         <activity android:name=".onboarding_Activity" />
         <activity android:name=".ui.login.login_Activity" />
         <activity android:name=".register_Activity" />
-
+        <activity android:name=".ui.home.Homeactivity" />
     </application>
 
 </manifest>

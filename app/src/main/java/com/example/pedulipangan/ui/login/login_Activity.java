@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.pedulipangan.R;
 import com.example.pedulipangan.onboarding_Activity;
 import com.example.pedulipangan.register_Activity;
-import com.example.pedulipangan.ui.home.HomeFragment;
+import com.example.pedulipangan.ui.home.Homeactivity;
 
 public class login_Activity extends AppCompatActivity {
 
@@ -57,7 +57,7 @@ public class login_Activity extends AppCompatActivity {
     }
 
     public void toMain(){
-        Intent intent = new Intent(login_Activity.this, HomeFragment.class);
+        Intent intent = new Intent(login_Activity.this, Homeactivity.class);
         startActivity(intent);
         finish();
     }
