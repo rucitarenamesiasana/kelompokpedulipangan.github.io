@@ -1,14 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.stocks.stocksfragments">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:background="#EBF7DF"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="192dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/txvStock"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="#307331"
+                    android:textStyle="bold"
+                    android:textSize="40dp"
+                    android:layout_marginTop="60dp"
+                    android:layout_marginBottom="60dp"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginRight="30dp"
+                    android:text="Stock" />
+            </LinearLayout>
+            <ImageView
+                android:id="@+id/imgvSayur"
+                android:layout_width="180dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="60dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="180dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/sayur" />
+        </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btnPlus"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="end"
+                android:background="@drawable/plus"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="355dp"
+                android:layout_marginRight="20dp"/>
+        </LinearLayout>
+    </LinearLayout>
 </FrameLayout>
