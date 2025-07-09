@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EBF7DF"
+    android:id="@+id/navigation_home"
     tools:context=".ui.home.HomeFragment">
 
 

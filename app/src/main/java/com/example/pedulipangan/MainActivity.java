@@ -1,17 +1,13 @@
-// MainActivity.java - (No changes needed if you used the last corrected version, just for completeness)
 package com.example.pedulipangan;
 
 import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-
 import com.example.pedulipangan.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -26,8 +22,12 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        BottomNavigationView navView = binding.bottomNavigation; // Make sure this ID matches in XML
+        // ✅ Set Toolbar sebagai ActionBar
+        setSupportActionBar(binding.toolbar);
 
+        BottomNavigationView navView = binding.bottomNavigation;
+
+        // Fragment yang dianggap sebagai top-level destinations
         Set<Integer> topLevelDestinations = new HashSet<>();
         topLevelDestinations.add(R.id.navigation_home);
         topLevelDestinations.add(R.id.navigation_stocks);
@@ -37,8 +37,9 @@ public class MainActivity extends AppCompatActivity {
 
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(topLevelDestinations).build();
 
-        // Ensure this ID matches your FragmentContainerView in activity_main.xml
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.nav_host_fragment);
+        NavController navController = navHostFragment.getNavController();
 
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
@@ -46,9 +47,17 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        return NavigationUI.navigateUp(navController, new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_stocks, R.id.navigation_notifications, R.id.navigation_statistics, R.id.navigation_profile)
-                .build()) || super.onSupportNavigateUp();
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.nav_host_fragment);
+        NavController navController = navHostFragment.getNavController();
+
+        return NavigationUI.navigateUp(navController,
+                new AppBarConfiguration.Builder(
+                        R.id.navigation_home,
+                        R.id.navigation_stocks,
+                        R.id.navigation_notifications,
+                        R.id.navigation_statistics,
+                        R.id.navigation_profile).build()
+        ) || super.onSupportNavigateUp();
     }
 }

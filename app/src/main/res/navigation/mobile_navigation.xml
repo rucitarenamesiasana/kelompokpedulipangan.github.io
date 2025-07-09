@@ -13,25 +13,25 @@
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.example.pedulipangan.ui.notifications.NotificationsFragment"
+        android:name="com.example.pedulipangan.ui.stocks.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
 
     <fragment
         android:id="@+id/navigation_stocks"
-        android:name="com.example.pedulipangan.ui.stocks.stocksfragments"
-        android:label="Stocks"
+        android:name="com.example.pedulipangan.ui.stocks.StocksFragment"
+        android:label="@string/title_stock"
         tools:layout="@layout/fragment_stocks" />
 
     <fragment
         android:id="@+id/navigation_statistics"
-        android:name="com.example.pedulipangan.ui.statisticsfragment.statistics_fragment"
-        android:label="Stocks"
+        android:name="com.example.pedulipangan.ui.stocks.StatisticsFragment"
+        android:label="@string/title_statistics"
         tools:layout="@layout/fragment_statistics_fragment" />
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.example.pedulipangan.ui.profile.profile_fragment"
-        android:label="Stocks"
+        android:name="com.example.pedulipangan.ui.profile.ProfileFragment"
+        android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile_fragment" />
 </navigation>

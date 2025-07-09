@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.pedulipangan.MainActivity;
 import com.example.pedulipangan.R;
 import com.example.pedulipangan.onboarding_Activity;
 import com.example.pedulipangan.register_Activity;
@@ -57,7 +58,7 @@ public class login_Activity extends AppCompatActivity {
     }
 
     public void toMain(){
-        Intent intent = new Intent(login_Activity.this, Homeactivity.class);
+        Intent intent = new Intent(login_Activity.this, MainActivity.class);
         startActivity(intent);
         finish();
     }
