@@ -1,102 +1,80 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/onboarding"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@color/white">
 
+    <!-- Ilustrasi + background hijau dengan kurva -->
+    <ImageView
+        android:id="@+id/ivHeader"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_weight="1"
+        android:scaleType="fitXY"
+        android:src="@drawable/onboarding" />
+
+    <!-- Konten bagian bawah -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingHorizontal="32dp"
+        android:paddingBottom="150dp">
 
-
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/white">
-
-
-
-            <!-- Ilustrasi gambar -->
-            <ImageView
-                android:id="@+id/ivIllustration"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/onboarding" />
-
-        </FrameLayout>
-
-        <!-- Konten bagian bawah dengan background putih -->
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tvHeadline"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-30dp"
-            android:orientation="vertical"
-            android:gravity="center_horizontal"
-            android:paddingHorizontal="32dp"
-            android:paddingTop="0dp"
-            android:paddingBottom="0dp">
+            android:layout_marginBottom="12dp"
+            android:gravity="center"
+            android:text="Selamatkan Makanan,\nSelamatkan Masa Depan"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
-            <!-- Teks Judul -->
-            <TextView
-                android:id="@+id/tvHeadline"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Selamatkan Makanan,\nSelamatkan Masa Depan"
-                android:textSize="25sp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:lineSpacingExtra="4dp"
-                android:layout_marginBottom="12dp" />
+        <TextView
+            android:id="@+id/tvSubHeadlineColored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="90dp"
+            android:gravity="center"
+            android:text="Save Food, Save The Future"
+            android:textColor="@color/green_200"
+            android:textSize="23sp"
+            android:textStyle="bold" />
 
-            <!-- Subtitle dengan warna hijau -->
-            <TextView
-                android:id="@+id/tvSubHeadlineColored"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Save Food, Save The Future"
-                android:textSize="17sp"
-                android:textColor="#4CAF50"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:layout_marginBottom="48dp" />
+        <!-- Tombol -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-            <!-- Tombol Login & Register -->
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="130dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="50dp"
+                android:background="@drawable/button_green_rounded"
+                android:text="Login"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-                <Button
-                    android:id="@+id/btnLogin"
-                    android:layout_width="130dp"
-                    android:layout_height="50dp"
-                    android:text="Login"
-                    android:textSize="16sp"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:backgroundTint="@color/green_200"
-                    android:layout_marginEnd="20dp"
-                    android:background="@drawable/button_green_rounded" />
-
-                <Button
-                    android:id="@+id/btnRegister"
-                    android:layout_width="130dp"
-                    android:layout_height="50dp"
-                    android:text="Register"
-                    android:textSize="16sp"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:backgroundTint="@color/green_200"
-                    android:background="@drawable/button_green_rounded" />
-
-            </LinearLayout>
-
+            <Button
+                android:id="@+id/btnRegister"
+                android:layout_width="130dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_green_rounded"
+                android:text="Register"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
         </LinearLayout>
-
     </LinearLayout>
-</ScrollView>
+</LinearLayout>
