@@ -38,13 +38,13 @@
 
             <ImageView
                 android:id="@+id/imgvSayur"
-                android:layout_width="150dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginTop="70dp"
-                android:layout_marginBottom="30dp"
                 android:layout_marginRight="210dp"
-                android:background="@drawable/sayur"
-                android:layout_weight="1" />
+                android:layout_marginBottom="30dp"
+                android:layout_weight="1"
+                android:background="@drawable/sayur" />
         </LinearLayout>
 
         <!-- Konten lain -->
@@ -56,7 +56,7 @@
 
     <!-- ✅ Tombol dipindahkan ke sini agar tidak tertimpa -->
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/btnAdd"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_gravity="end|top"
