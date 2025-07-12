@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#F3F3F3"
+    android:padding="12dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txvCategory"
+            android:text="Wortel"
+            android:textColor="@color/green_200"
+            android:textSize="16sp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/manrope_extrabold"/>
+
+        <TextView
+            android:id="@+id/txvAmount"
+            android:text="3 pcs"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:layout_marginStart="10dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/manrope_extrabold"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp">
+
+        <TextView
+            android:id="@+id/txvExpiry"
+            android:text="Expires: 30 June 2025"
+            android:textColor="@color/red"
+            android:textSize="14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/manrope_extrabold"
+            />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="69dp">
+
+            <Button
+                android:id="@+id/btnEdit"
+                android:text="Edit"
+                android:backgroundTint="@color/green_fade"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/manrope_extrabold"/>
+
+            <Button
+                android:id="@+id/btnDiscard"
+                android:text="Discard"
+                android:backgroundTint="@color/red_fade"
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:fontFamily="@font/manrope_extrabold"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

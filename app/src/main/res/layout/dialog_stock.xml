@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:minWidth="350dp"
+    android:background="@color/white">
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:src="@drawable/sayur" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="-10dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:textSize="20dp"
+            android:fontFamily="@font/manrope_extrabold"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Category :" />
+
+        <Spinner
+            android:id="@+id/sprCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:fontFamily="@font/manrope_extrabold"
+            android:entries="@array/product_categories" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+
+        <TextView
+            android:textSize="20dp"
+            android:fontFamily="@font/manrope_extrabold"
+            android:textColor="@color/black"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Amount :" />
+
+        <EditText
+            android:id="@+id/edtAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:minWidth="48dp"
+            android:padding="8dp"
+            android:textSize="21dp"
+            android:fontFamily="@font/manrope_extrabold"
+            android:textColor="@color/black"
+            android:inputType="number"
+            android:hint="1"
+            android:layout_marginRight="16dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+
+        <TextView
+            android:textSize="20dp"
+            android:fontFamily="@font/manrope_extrabold"
+            android:textColor="@color/black"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Expiry Date :" />
+
+        <TextView
+            android:id="@+id/txvExpiry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="dd/mm/yyyy"
+            android:height="48dp"
+            android:textSize="21dp"
+            android:fontFamily="@font/manrope_extrabold"
+            android:textColor="@android:color/darker_gray" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnDone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="done"
+        android:fontFamily="@font/manrope_extrabold"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/green_fade" />
+
+</LinearLayout>
