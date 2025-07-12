@@ -1,4 +1,4 @@
-package com.example.pedulipangan.ui.stocks;
+package com.example.pedulipangan.ui.statistics;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

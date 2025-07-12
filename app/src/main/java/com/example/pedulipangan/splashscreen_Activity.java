@@ -12,6 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.pedulipangan.R;
 import com.example.pedulipangan.onboarding_Activity;
 
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+
 public class splashscreen_Activity extends AppCompatActivity {
 
     private static final int SPLASH_DURATION = 5000; // 5 detik
@@ -34,5 +37,14 @@ public class splashscreen_Activity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }, SPLASH_DURATION);
+
+        Realm.init(this);
+        RealmConfiguration config = new RealmConfiguration.Builder()
+                .name("pedulipangan.realm")
+                .schemaVersion(1)
+                .deleteRealmIfMigrationNeeded()
+                .build();
+        Realm.setDefaultConfiguration(config);
+
     }
 }

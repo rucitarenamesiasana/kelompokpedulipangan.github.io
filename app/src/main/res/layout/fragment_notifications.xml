@@ -5,19 +5,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/navigation_notifications"
-    tools:context=".ui.notifications.NotificationsFragment">
+    tools:context="com.example.pedulipangan.ui.notifications.NotificationsFragment">
 
-    <TextView
-        android:id="@+id/text_notifications"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="#EBF7DF"
+        android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txvStock"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="#307331"
+            android:fontFamily="@font/manrope_extrabold"
+            android:textSize="40dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="55dp"
+            android:layout_marginRight="30dp"
+            android:text="Notifications" />
+    </LinearLayout>
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <ListView
+                android:id="@+id/lsvNotif"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,15 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/navigation_profile"
-    tools:context=".ui.profile.ProfileFragment">
+    tools:context=".ui.profile.ProfileFragment"
+    android:background="@drawable/profilebg">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imvProfile"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_marginLeft="130dp"
+            tools:src="@drawable/profile"
+            android:layout_marginTop="100dp"/>
+
+        <TextView
+            android:id="@+id/txvNamaUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="User"
+            android:fontFamily="@font/manrope_extrabold"
+            android:textColor="@color/green_200"
+            android:textSize="30dp"
+            android:layout_marginLeft="190dp"
+            android:layout_marginTop="10dp"/>
+
+        <EditText
+            android:text="Email"
+            android:id="@+id/email"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:background="#F0F0F0"
+            android:paddingHorizontal="16dp"
+            android:layout_marginTop="32dp"
+            android:textSize="20dp"
+            android:layout_marginLeft="55dp"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/green_200"
+            android:fontFamily="@font/manrope_extrabold"/>
+
+        <TextView
+            android:text="Please select your gender"
+            android:id="@+id/gender"
+            android:layout_width="350dp"
+            android:textSize="20dp"
+            android:paddingVertical="10dp"
+            android:layout_height="50dp"
+            android:background="#F0F0F0"
+            android:paddingHorizontal="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginLeft="55dp"
+            android:textColor="@color/green_200"
+            android:fontFamily="@font/manrope_extrabold"/>
+
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:background="@drawable/button_green_rounded"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="55dp"
+            android:textSize="18dp"
+            android:fontFamily="@font/manrope_extrabold"
+            android:text="Logout"
+            android:textAllCaps="false"/>
+
+    </LinearLayout>
 
 </FrameLayout>

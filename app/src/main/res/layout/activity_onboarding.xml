@@ -33,7 +33,7 @@
             android:text="Selamatkan Makanan,\nSelamatkan Masa Depan"
             android:textColor="@color/black"
             android:textSize="25sp"
-            android:textStyle="bold" />
+            android:fontFamily="@font/manrope_extrabold" />
 
         <TextView
             android:id="@+id/tvSubHeadlineColored"
@@ -45,7 +45,7 @@
             android:text="Save Food, Save The Future"
             android:textColor="@color/green_200"
             android:textSize="23sp"
-            android:textStyle="bold" />
+            android:fontFamily="@font/manrope_extrabold" />
 
         <!-- Tombol -->
         <LinearLayout
@@ -64,7 +64,7 @@
                 android:text="Login"
                 android:textColor="@color/white"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:fontFamily="@font/manrope_extrabold" />
 
             <Button
                 android:id="@+id/btnRegister"
@@ -74,7 +74,7 @@
                 android:text="Register"
                 android:textColor="@color/white"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:fontFamily="@font/manrope_extrabold" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
