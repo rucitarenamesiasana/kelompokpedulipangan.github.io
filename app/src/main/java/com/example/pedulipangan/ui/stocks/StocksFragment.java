@@ -16,12 +16,15 @@ import com.example.pedulipangan.databinding.FragmentStocksBinding;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
+import io.realm.Sort;
 
 public class StocksFragment extends Fragment {
 
     private FragmentStocksBinding binding;
     private StockAdapter adapter;
     private Realm realm;
+    private RealmResults<StockItem> stocks;
+
 
     @Nullable
     @Override
@@ -34,7 +37,12 @@ public class StocksFragment extends Fragment {
         View root = binding.getRoot();
 
         realm = Realm.getDefaultInstance();
-        RealmResults<StockItem> stocks = realm.where(StockItem.class).findAll();
+        RealmResults<StockItem> stocks = realm.where(StockItem.class)
+                .sort("expiryDate", Sort.ASCENDING)
+                .findAllAsync();
+        stocks.addChangeListener(updatedStocks -> {
+            adapter.updateData(updatedStocks);
+        });
 
         binding.rvStocks.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter = new StockAdapter(stocks);
@@ -55,9 +63,17 @@ public class StocksFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        if (realm != null) {
+        if (stocks != null) {
+            stocks.removeAllChangeListeners();
+        }
+        if (realm != null && !realm.isClosed()) {
             realm.close();
+        }
+        if (adapter != null) {
+            adapter.close();
         }
         binding = null;
     }
+
+
 }

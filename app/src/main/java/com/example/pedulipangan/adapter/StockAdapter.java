@@ -16,14 +16,21 @@ import java.util.List;
 import java.util.Locale;
 
 import io.realm.Realm;
+import io.realm.RealmChangeListener;
 import io.realm.RealmResults;
 
 public class StockAdapter extends RecyclerView.Adapter<StockAdapter.StockViewHolder> {
 
     private RealmResults<StockItem> stockList;
+    private Realm realm;
+    private RealmChangeListener<RealmResults<StockItem>> listener;
 
     public StockAdapter(RealmResults<StockItem> stockList) {
         this.stockList = stockList;
+        this.realm = Realm.getDefaultInstance();
+
+        listener = results -> notifyDataSetChanged();
+        this.stockList.addChangeListener(listener);
     }
 
     @NonNull
@@ -56,9 +63,8 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.StockViewHol
                 item.deleteFromRealm();
             });
             realm.close();
-            notifyItemRemoved(position);
-            notifyItemRangeChanged(position, getItemCount());
             Toast.makeText(v.getContext(), "Stok dihapus", Toast.LENGTH_SHORT).show();
+            notifyDataSetChanged();
         });
     }
 
@@ -80,4 +86,14 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.StockViewHol
         this.stockList = newList;
         notifyDataSetChanged();
     }
+
+    public void close() {
+        if (stockList != null && listener != null) {
+            stockList.removeChangeListener(listener);
+        }
+        if (realm != null && !realm.isClosed()) {
+            realm.close();
+        }
+    }
+
 }

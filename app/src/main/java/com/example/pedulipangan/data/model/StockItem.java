@@ -4,11 +4,12 @@ import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
 import java.util.Date;
+import java.util.UUID;
 
 public class StockItem extends RealmObject {
 
     @PrimaryKey
-    private String id;
+    private String id = UUID.randomUUID().toString();
     private String category;
     private int amount;
     private Date expiryDate;

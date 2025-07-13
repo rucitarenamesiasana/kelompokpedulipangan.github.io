@@ -1,6 +1,7 @@
 package com.example.pedulipangan;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.animation.Animation;
@@ -33,7 +34,16 @@ public class splashscreen_Activity extends AppCompatActivity {
 
         // Setelah 5 detik, lanjut ke onboarding
         new Handler().postDelayed(() -> {
-            Intent intent = new Intent(splashscreen_Activity.this, onboarding_Activity.class);
+            SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
+            boolean onboardingDone = prefs.getBoolean("onboarding_done", false);
+
+            Intent intent;
+            if (onboardingDone) {
+                intent = new Intent(splashscreen_Activity.this, MainActivity.class);
+            } else {
+                intent = new Intent(splashscreen_Activity.this, onboarding_Activity.class);
+            }
+
             startActivity(intent);
             finish();
         }, SPLASH_DURATION);

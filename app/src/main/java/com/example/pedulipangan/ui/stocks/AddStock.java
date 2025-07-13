@@ -6,16 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 import android.widget.Toast;
+
 import com.example.pedulipangan.R;
-
-import io.realm.Realm;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.DialogFragment;
-
 import com.example.pedulipangan.data.model.StockItem;
 import com.example.pedulipangan.databinding.DialogStockBinding;
 
@@ -25,6 +18,12 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.UUID;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.DialogFragment;
+
+import io.realm.Realm;
 
 public class AddStock extends DialogFragment {
 
@@ -43,28 +42,47 @@ public class AddStock extends DialogFragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(
+            @NonNull LayoutInflater inflater,
+            @Nullable ViewGroup container,
+            @Nullable Bundle savedInstanceState
+    ) {
         binding = DialogStockBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(
+            @NonNull View view,
+            @Nullable Bundle savedInstanceState
+    ) {
         super.onViewCreated(view, savedInstanceState);
         realm = Realm.getDefaultInstance();
 
+        setupCategorySpinner();
+        setupDatePicker();
+        setupButton();
+    }
+
+    private void setupCategorySpinner() {
         ArrayAdapter<CharSequence> categoryAdapter = ArrayAdapter.createFromResource(
-                getContext(), R.array.product_categories, android.R.layout.simple_spinner_item);
+                getContext(),
+                R.array.product_categories,
+                android.R.layout.simple_spinner_item
+        );
         categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         binding.sprCategory.setAdapter(categoryAdapter);
+    }
 
+    private void setupDatePicker() {
         binding.txvExpiry.setOnClickListener(v -> {
             Calendar calendar = Calendar.getInstance();
             DatePickerDialog datePickerDialog = new DatePickerDialog(
                     getContext(),
                     (view1, year, month, dayOfMonth) -> {
                         calendar.set(year, month, dayOfMonth);
-                        String formattedDate = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(calendar.getTime());
+                        String formattedDate = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+                                .format(calendar.getTime());
                         binding.txvExpiry.setText(formattedDate);
                     },
                     calendar.get(Calendar.YEAR),
@@ -74,7 +92,9 @@ public class AddStock extends DialogFragment {
             datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());
             datePickerDialog.show();
         });
+    }
 
+    private void setupButton() {
         binding.btnDone.setOnClickListener(v -> {
             String category = binding.sprCategory.getSelectedItem().toString();
             String amountStr = binding.edtAmount.getText().toString();
@@ -85,7 +105,14 @@ public class AddStock extends DialogFragment {
                 return;
             }
 
-            int amount = Integer.parseInt(amountStr);
+            int amount;
+            try {
+                amount = Integer.parseInt(amountStr);
+            } catch (NumberFormatException e) {
+                Toast.makeText(getContext(), "Jumlah tidak valid", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             Date expiryDate;
             try {
                 expiryDate = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).parse(expiryStr);
@@ -107,4 +134,14 @@ public class AddStock extends DialogFragment {
 
             dismiss();
         });
-    }}
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        if (realm != null && !realm.isClosed()) {
+            realm.close();
+        }
+        binding = null;
+    }
+}
