@@ -51,6 +51,7 @@ public class splashscreen_Activity extends AppCompatActivity {
         Realm.init(this);
         RealmConfiguration config = new RealmConfiguration.Builder()
                 .name("pedulipangan.realm")
+                .allowWritesOnUiThread(true)
                 .schemaVersion(1)
                 .deleteRealmIfMigrationNeeded()
                 .build();

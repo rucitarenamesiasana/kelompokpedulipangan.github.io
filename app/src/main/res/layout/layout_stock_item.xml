@@ -54,14 +54,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:layout_marginLeft="69dp">
+            android:layout_marginLeft="55dp">
 
             <Button
                 android:id="@+id/btnEdit"
                 android:text="Edit"
                 android:backgroundTint="@color/green_fade"
-                android:textSize="12sp"
-                android:layout_width="wrap_content"
+                android:textSize="11sp"
+                android:layout_width="88dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/manrope_extrabold"/>
 
@@ -69,8 +69,8 @@
                 android:id="@+id/btnDiscard"
                 android:text="Discard"
                 android:backgroundTint="@color/red_fade"
-                android:textSize="12sp"
-                android:layout_width="wrap_content"
+                android:textSize="11sp"
+                android:layout_width="88dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:fontFamily="@font/manrope_extrabold"/>
