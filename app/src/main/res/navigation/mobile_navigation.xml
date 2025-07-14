@@ -25,7 +25,7 @@
 
     <fragment
         android:id="@+id/navigation_statistics"
-        android:name="com.example.pedulipangan.ui.stocks.StatisticsFragment"
+        android:name="com.example.pedulipangan.ui.statistics.StatisticsFragment"
         android:label="@string/title_statistics"
         tools:layout="@layout/fragment_statistics_fragment" />
 
