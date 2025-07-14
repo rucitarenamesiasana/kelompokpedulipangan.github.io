@@ -21,23 +21,27 @@ public class onboarding_Activity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnLogin);
         btnRegister = findViewById(R.id.btnRegister);
 
+        // Jika user pilih Login → simpan bahwa onboarding sudah selesai, lalu ke login
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
+                prefs.edit().putBoolean("onboarding_done", true).apply();
+
                 Intent intent = new Intent(onboarding_Activity.this, login_Activity.class);
                 startActivity(intent);
             }
         });
 
+        // Jika user pilih Register → simpan bahwa onboarding selesai, lalu ke halaman register (bukan langsung ke home)
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
                 prefs.edit().putBoolean("onboarding_done", true).apply();
 
-                Intent intent = new Intent(onboarding_Activity.this, MainActivity.class);
+                Intent intent = new Intent(onboarding_Activity.this, register_Activity.class);
                 startActivity(intent);
-                finish();
             }
         });
     }

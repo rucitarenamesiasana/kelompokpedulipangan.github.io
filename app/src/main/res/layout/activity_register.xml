@@ -34,7 +34,7 @@
 
         <!-- Input: Full Name -->
         <EditText
-            android:id="@+id/fullName"
+            android:id="@+id/edtUsername"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="Full Name"
@@ -48,7 +48,7 @@
 
         <!-- Input: Email -->
         <EditText
-            android:id="@+id/email"
+            android:id="@+id/edtEmail"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="Email"
@@ -63,7 +63,7 @@
 
         <!-- Input: Password -->
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/edtPassword"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="Password"

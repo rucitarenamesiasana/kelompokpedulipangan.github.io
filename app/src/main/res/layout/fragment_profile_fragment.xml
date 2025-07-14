@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -53,12 +53,22 @@
             android:textSize="20dp"
             android:paddingVertical="10dp"
             android:layout_height="50dp"
-            android:background="#F0F0F0"
             android:paddingHorizontal="16dp"
             android:layout_marginTop="32dp"
             android:layout_marginLeft="55dp"
             android:textColor="@color/green_200"
             android:fontFamily="@font/manrope_extrabold"/>
+
+        <Spinner
+            android:id="@+id/spinnerGender"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="55dp"
+            android:background="#F0F0F0"
+            android:spinnerMode="dropdown"
+            android:paddingHorizontal="16dp" />
+
 
         <Button
             android:id="@+id/btnLogout"
@@ -74,4 +84,4 @@
 
     </LinearLayout>
 
-</FrameLayout>
+</ScrollView>
