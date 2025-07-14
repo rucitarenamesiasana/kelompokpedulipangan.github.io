@@ -1,5 +1,7 @@
 package com.example.pedulipangan.ui.stocks;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,7 +27,6 @@ public class StocksFragment extends Fragment {
     private Realm realm;
     private RealmResults<StockItem> stocks;
 
-
     @Nullable
     @Override
     public View onCreateView(
@@ -37,9 +38,20 @@ public class StocksFragment extends Fragment {
         View root = binding.getRoot();
 
         realm = Realm.getDefaultInstance();
-        RealmResults<StockItem> stocks = realm.where(StockItem.class)
+
+        // Ambil userId dari SharedPreferences
+        SharedPreferences prefs = requireContext().getSharedPreferences("prefs", Context.MODE_PRIVATE);
+        String userId = prefs.getString("logged_in_username", null);
+        if (userId == null) {
+            return root;
+        }
+
+        // Filter hanya stok milik user yang sedang login
+        stocks = realm.where(StockItem.class)
+                .equalTo("userId", userId)
                 .sort("expiryDate", Sort.ASCENDING)
                 .findAllAsync();
+
         stocks.addChangeListener(updatedStocks -> {
             adapter.updateData(updatedStocks);
         });
@@ -51,7 +63,10 @@ public class StocksFragment extends Fragment {
         binding.btnAdd.setOnClickListener(v -> {
             AddStock dialog = new AddStock();
             dialog.setOnStockAddedListener(() -> {
-                RealmResults<StockItem> updatedStocks = realm.where(StockItem.class).findAll();
+                RealmResults<StockItem> updatedStocks = realm.where(StockItem.class)
+                        .equalTo("userId", userId)
+                        .sort("expiryDate", Sort.ASCENDING)
+                        .findAll();
                 adapter.updateData(updatedStocks);
             });
             dialog.show(getParentFragmentManager(), "AddStockDialog");
@@ -74,6 +89,4 @@ public class StocksFragment extends Fragment {
         }
         binding = null;
     }
-
-
 }

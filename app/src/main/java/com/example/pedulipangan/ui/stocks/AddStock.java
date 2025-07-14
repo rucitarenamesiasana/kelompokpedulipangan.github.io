@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
+import java.util.UUID;
 
 import com.example.pedulipangan.R;
 import com.example.pedulipangan.data.model.StockItem;
@@ -17,8 +18,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-import java.util.UUID;
-
+import android.content.Context;
+import android.content.SharedPreferences;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
@@ -121,13 +122,29 @@ public class AddStock extends DialogFragment {
                 return;
             }
 
+            // Cek apakah tanggal yang dipilih sudah lewat
+            Date today = new Date();
+            if (expiryDate.before(today)) {
+                Toast.makeText(getContext(), "Tanggal kadaluarsa sudah lewat. Barang akan ditandai sebagai wasted.", Toast.LENGTH_LONG).show();
+            }
+
+            // Ambil userId dari SharedPreferences
+            SharedPreferences prefs = requireContext().getSharedPreferences("prefs", Context.MODE_PRIVATE);
+            String userId = prefs.getString("logged_in_username", "User");
+
+            // Simpan ke database Realm
             realm.executeTransaction(r -> {
                 StockItem item = r.createObject(StockItem.class, UUID.randomUUID().toString());
                 item.setCategory(category);
                 item.setAmount(amount);
                 item.setExpiryDate(expiryDate);
+                item.setUserId(userId);
+
+                // Tidak perlu set wasted sekarang, karena sudah dihitung otomatis di HomeFragment
+                // Tapi kamu bisa tambahkan logika tambahan jika mau tandai manual
             });
 
+            // Notify listener agar HomeFragment bisa refresh
             if (listener != null) {
                 listener.onStockAdded();
             }
@@ -135,6 +152,8 @@ public class AddStock extends DialogFragment {
             dismiss();
         });
     }
+
+
 
     @Override
     public void onDestroyView() {
