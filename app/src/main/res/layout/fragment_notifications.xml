@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/navigation_notifications"
-    tools:context="com.example.pedulipangan.ui.notifications.NotificationsFragment">
+    tools:context="com.example.pedulipangan.ui.notifications.NotificationFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -33,7 +33,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="45dp"
-                        android:layout_marginTop="45dp"
+                        android:layout_marginTop="60dp"
                         android:layout_marginBottom="30dp"
                         android:fontFamily="@font/manrope_extrabold"
                         android:text="Notifications"
@@ -51,6 +51,7 @@
 
                 <!-- Notifikasi 1 -->
                 <RelativeLayout
+                    android:id="@+id/cardNotif1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
@@ -108,6 +109,7 @@
 
                 <!-- Notifikasi 2 -->
                 <RelativeLayout
+                    android:id="@+id/cardNotif2"
                     android:layout_marginTop="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -166,6 +168,7 @@
 
                 <!-- Notifikasi 3 -->
                 <RelativeLayout
+                    android:id="@+id/cardNotif3"
                     android:layout_marginTop="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
