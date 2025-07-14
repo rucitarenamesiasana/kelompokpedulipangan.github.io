@@ -24,7 +24,6 @@
         android:id="@+id/txtGreeting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hi, Janice"
         android:textSize="36sp"
         android:fontFamily="@font/manrope_extrabold"
         android:textColor="#2D7039"
