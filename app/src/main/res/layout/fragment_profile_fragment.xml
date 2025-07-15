@@ -18,7 +18,7 @@
             android:layout_width="180dp"
             android:layout_height="180dp"
             android:layout_marginLeft="130dp"
-            tools:src="@drawable/profile"
+            android:src="@drawable/profile"
             android:layout_marginTop="100dp"/>
 
         <TextView
@@ -32,7 +32,7 @@
             android:layout_marginLeft="190dp"
             android:layout_marginTop="10dp"/>
 
-        <EditText
+        <TextView
             android:text="Email"
             android:id="@+id/email"
             android:layout_width="350dp"
@@ -40,9 +40,9 @@
             android:background="#F0F0F0"
             android:paddingHorizontal="16dp"
             android:layout_marginTop="32dp"
+            android:paddingTop="9dp"
             android:textSize="20dp"
             android:layout_marginLeft="55dp"
-            android:inputType="textEmailAddress"
             android:textColor="@color/green_200"
             android:fontFamily="@font/manrope_extrabold"/>
 
@@ -66,8 +66,8 @@
             android:layout_marginTop="8dp"
             android:layout_marginLeft="55dp"
             android:background="#F0F0F0"
-            android:spinnerMode="dropdown"
-            android:paddingHorizontal="16dp" />
+            android:paddingHorizontal="16dp"
+            android:entries="@array/gender_options"/>
 
 
         <Button
