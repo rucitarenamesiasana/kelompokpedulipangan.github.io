@@ -49,8 +49,8 @@ public class ProfileFragment extends Fragment {
                     .findFirst();
 
             if (currentUser != null) {
-                // Menampilkan "Hi, Username"
-                binding.txvNamaUser.setText("Hi, " + currentUser.getUsername());
+
+                binding.txvNamaUser.setText(capitalize(currentUser.getUsername()));
 
                 // Menampilkan email
                 binding.email.setText(currentUser.getEmail());
@@ -88,6 +88,11 @@ public class ProfileFragment extends Fragment {
         });
 
         return root;
+    }
+
+    private String capitalize(String input) {
+        if (input == null || input.isEmpty()) return "";
+        return input.substring(0, 1).toUpperCase() + input.substring(1);
     }
 
     private void saveGenderToRealm() {
