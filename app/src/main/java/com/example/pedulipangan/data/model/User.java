@@ -12,7 +12,6 @@ public class User extends RealmObject {
     private String email;
     private String gender;
 
-
     public String getUsername() {
         return username;
     }

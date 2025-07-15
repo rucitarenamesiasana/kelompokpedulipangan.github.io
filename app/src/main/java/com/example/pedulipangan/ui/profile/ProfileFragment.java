@@ -36,11 +36,12 @@ public class ProfileFragment extends Fragment {
         binding = FragmentProfileFragmentBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        // Inisialisasi Realm
         realm = Realm.getDefaultInstance();
 
         // Ambil username dari SharedPreferences
         SharedPreferences prefs = requireActivity().getSharedPreferences("prefs", Context.MODE_PRIVATE);
-        String username = prefs.getString("logged_in_user", null);
+        String username = prefs.getString("logged_in_username", null); // pastikan ini benar
 
         if (username != null) {
             currentUser = realm.where(User.class)
@@ -48,7 +49,10 @@ public class ProfileFragment extends Fragment {
                     .findFirst();
 
             if (currentUser != null) {
-                binding.txvNamaUser.setText(currentUser.getUsername());
+                // Menampilkan "Hi, Username"
+                binding.txvNamaUser.setText("Hi, " + currentUser.getUsername());
+
+                // Menampilkan email
                 binding.email.setText(currentUser.getEmail());
 
                 // Setup spinner gender
@@ -69,15 +73,15 @@ public class ProfileFragment extends Fragment {
             }
         }
 
+
         // Tombol Logout
         binding.btnLogout.setOnClickListener(v -> {
-            // Simpan gender terbaru
-            saveGenderToRealm();
+            saveGenderToRealm(); // Simpan gender yang dipilih
 
             // Hapus sesi login
-            prefs.edit().remove("logged_in_user").apply();
+            prefs.edit().remove("logged_in_username").apply();
 
-            // Kembali ke onboarding
+            // Navigasi ke onboarding
             Intent intent = new Intent(requireContext(), onboarding_Activity.class);
             startActivity(intent);
             requireActivity().finish();
@@ -95,7 +99,7 @@ public class ProfileFragment extends Fragment {
 
     @Override
     public void onDestroyView() {
-        saveGenderToRealm(); // simpan sebelum keluar fragment
+        saveGenderToRealm(); // Simpan saat fragment dihancurkan
         if (realm != null) realm.close();
         binding = null;
         super.onDestroyView();
