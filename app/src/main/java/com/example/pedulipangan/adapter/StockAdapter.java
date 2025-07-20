@@ -135,6 +135,18 @@ public class StockAdapter extends RecyclerView.Adapter<StockAdapter.StockViewHol
             Toast.makeText(v.getContext(), "Stok dihapus", Toast.LENGTH_SHORT).show();
             notifyDataSetChanged();
         });
+
+        holder.binding.imvCheck.setOnClickListener(v -> {
+            Realm realm = Realm.getDefaultInstance();
+            realm.executeTransaction(r -> {
+                item.setUsedDate(new Date());
+            });
+            realm.close();
+
+            Toast.makeText(v.getContext(), "Stok ditandai sebagai digunakan tepat waktu", Toast.LENGTH_SHORT).show();
+            notifyDataSetChanged();
+        });
+
     }
 
     @Override

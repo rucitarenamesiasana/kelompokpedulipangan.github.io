@@ -49,8 +49,10 @@ public class StocksFragment extends Fragment {
         // Filter hanya stok milik user yang sedang login
         stocks = realm.where(StockItem.class)
                 .equalTo("userId", userId)
+                .isNull("usedDate")
                 .sort("expiryDate", Sort.ASCENDING)
                 .findAllAsync();
+
 
         stocks.addChangeListener(updatedStocks -> {
             adapter.updateData(updatedStocks);

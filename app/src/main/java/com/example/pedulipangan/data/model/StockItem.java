@@ -14,7 +14,7 @@ public class StockItem extends RealmObject {
     private int amount;
     private Date expiryDate;
     private Date usedDate;
-    private String userId; // ✅ Tambahkan ini
+    private String userId;
 
     // Getter & Setter untuk userId
     public String getUserId() {
@@ -23,14 +23,6 @@ public class StockItem extends RealmObject {
 
     public void setUserId(String userId) {
         this.userId = userId;
-    }
-
-    public Date getUsedDate() {
-        return usedDate;
-    }
-
-    public void setUsedDate(Date usedDate) {
-        this.usedDate = usedDate;
     }
 
     public String getId() {
@@ -64,4 +56,13 @@ public class StockItem extends RealmObject {
     public void setExpiryDate(Date expiryDate) {
         this.expiryDate = expiryDate;
     }
+
+    public Date getUsedDate() {
+        return usedDate;
+    }
+
+    public void setUsedDate(Date usedDate) {
+        this.usedDate = usedDate;
+    }
+
 }

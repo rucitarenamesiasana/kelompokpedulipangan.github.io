@@ -52,6 +52,16 @@ public class HomeFragment extends Fragment {
         return root;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        SharedPreferences prefs = requireContext().getSharedPreferences("prefs", Context.MODE_PRIVATE);
+        String username = prefs.getString("logged_in_username", "User");
+
+        showStockSummary(username); // Refresh data saat kembali ke fragment ini
+    }
+
     private void showStockSummary(String userId) {
         Date today = new Date();
         int expiringSoon = 0;
@@ -70,9 +80,10 @@ public class HomeFragment extends Fragment {
 
             long daysLeft = (expiryDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24);
 
-            if (daysLeft >= 0 && daysLeft <= 2) {
+            if (daysLeft >= 0 && daysLeft <= 2 && usedDate == null) {
                 expiringSoon++;
-            } else if (daysLeft < 0 && usedDate == null) {
+            }
+            else if (daysLeft < 0 && usedDate == null) {
                 wasted++;
             }
 

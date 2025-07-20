@@ -60,9 +60,9 @@ public class AddStock extends DialogFragment {
         super.onViewCreated(view, savedInstanceState);
         realm = Realm.getDefaultInstance();
 
-        setupCategorySpinner();
-        setupDatePicker();
-        setupButton();
+        setupCategorySpinner();// Isi data dropdown kategori
+        setupDatePicker();       // Siapkan logika pemilihan tanggal
+        setupButton();           // Siapkan tombol Done
     }
 
     private void setupCategorySpinner() {
