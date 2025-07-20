@@ -41,7 +41,7 @@ public class ProfileFragment extends Fragment {
 
         // Ambil username dari SharedPreferences
         SharedPreferences prefs = requireActivity().getSharedPreferences("prefs", Context.MODE_PRIVATE);
-        String username = prefs.getString("logged_in_username", null); // pastikan ini benar
+        String username = prefs.getString("logged_in_username", null);
 
         if (username != null) {
             currentUser = realm.where(User.class)
@@ -51,8 +51,6 @@ public class ProfileFragment extends Fragment {
             if (currentUser != null) {
 
                 binding.txvNamaUser.setText(capitalize(currentUser.getUsername()));
-
-                // Menampilkan email
                 binding.email.setText(currentUser.getEmail());
 
                 // Setup spinner gender
@@ -64,24 +62,22 @@ public class ProfileFragment extends Fragment {
                 genderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 binding.spinnerGender.setAdapter(genderAdapter);
 
-                // Set pilihan gender yang sudah disimpan
                 String savedGender = currentUser.getGender();
                 if (savedGender != null) {
                     int position = genderAdapter.getPosition(savedGender);
                     binding.spinnerGender.setSelection(position);
                 }
+
+                // Set birthdate dan city dari Realm ke EditText
+                binding.edtBirthday.setText(currentUser.getBirthdate() != null ? currentUser.getBirthdate() : "");
+                binding.edtCity.setText(currentUser.getCity() != null ? currentUser.getCity() : "");
             }
         }
 
-
         // Tombol Logout
         binding.btnLogout.setOnClickListener(v -> {
-            saveGenderToRealm(); // Simpan gender yang dipilih
-
-            // Hapus sesi login
+            saveProfileData(); // Simpan semua data
             prefs.edit().remove("logged_in_username").apply();
-
-            // Navigasi ke onboarding
             Intent intent = new Intent(requireContext(), onboarding_Activity.class);
             startActivity(intent);
             requireActivity().finish();
@@ -95,16 +91,23 @@ public class ProfileFragment extends Fragment {
         return input.substring(0, 1).toUpperCase() + input.substring(1);
     }
 
-    private void saveGenderToRealm() {
+    private void saveProfileData() {
         if (currentUser != null) {
             String selectedGender = binding.spinnerGender.getSelectedItem().toString();
-            realm.executeTransaction(r -> currentUser.setGender(selectedGender));
+            String birthdate = binding.edtBirthday.getText().toString();
+            String city = binding.edtCity.getText().toString();
+
+            realm.executeTransaction(r -> {
+                currentUser.setGender(selectedGender);
+                currentUser.setBirthdate(birthdate);
+                currentUser.setCity(city);
+            });
         }
     }
 
     @Override
     public void onDestroyView() {
-        saveGenderToRealm(); // Simpan saat fragment dihancurkan
+        saveProfileData();
         if (realm != null) realm.close();
         binding = null;
         super.onDestroyView();

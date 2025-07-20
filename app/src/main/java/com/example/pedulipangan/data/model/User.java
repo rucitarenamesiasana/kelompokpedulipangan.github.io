@@ -12,10 +12,12 @@ public class User extends RealmObject {
     private String email;
     private String gender;
 
+    private String birthdate;
+    private String city;
+
     public String getUsername() {
         return username;
     }
-
     public void setUsername(String username) {
         this.username = username.toLowerCase();
     }
@@ -42,5 +44,22 @@ public class User extends RealmObject {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public String getBirthdate() {
+        return birthdate;
+    }
+
+    public void setBirthdate(String birthdate) {
+        this.birthdate = birthdate;
+    }
+
+    // Getter dan Setter untuk city
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 }

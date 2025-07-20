@@ -1,7 +1,6 @@
 package com.example.pedulipangan;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -9,43 +8,43 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
+
+import io.realm.Realm;
 
 import com.example.pedulipangan.data.model.User;
 import com.example.pedulipangan.ui.login.login_Activity;
 
-import io.realm.Realm;
-import io.realm.RealmResults;
-
 public class register_Activity extends AppCompatActivity {
 
-    ImageView btnBack;
-    TextView loginLink;
-    Button btnRegister;
+    private EditText fullName, email, password, confirmPassword;
+    private Button btnRegister;
+    private ImageView btnBack;
+    private TextView loginLink;
 
-    EditText fullName, email, password, confirmPassword;
-    Realm realm;
+    private Realm realm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        Realm.init(this);
+        // Realm init
+        Realm.init(getApplicationContext());
         realm = Realm.getDefaultInstance();
 
-        btnBack = findViewById(R.id.btnBack);
         loginLink = findViewById(R.id.loginLink);
         btnRegister = findViewById(R.id.btnRegister);
-
         fullName = findViewById(R.id.edtUsername);
         email = findViewById(R.id.edtEmail);
         password = findViewById(R.id.edtPassword);
         confirmPassword = findViewById(R.id.confirmPassword);
+        btnBack = findViewById(R.id.btnBack);
 
-        btnBack.setOnClickListener(view -> {
-            startActivity(new Intent(this, onboarding_Activity.class));
-            finish();
+        // Ganti deprecated onBackPressed
+        btnBack.setOnClickListener(v -> {
+            finish(); // kembali ke login
         });
 
         btnRegister.setOnClickListener(v -> {
@@ -59,38 +58,29 @@ public class register_Activity extends AppCompatActivity {
             } else if (!passInput.equals(confirmPassInput)) {
                 Toast.makeText(this, "Password tidak cocok", Toast.LENGTH_SHORT).show();
             } else {
-                User existing = realm.where(User.class).equalTo("username", nameInput.toLowerCase()).findFirst();
-                if (existing != null) {
-                    Toast.makeText(this, "Username sudah digunakan", Toast.LENGTH_SHORT).show();
-                    return;
-                }
                 realm.executeTransaction(r -> {
-                    User user = r.createObject(User.class, nameInput.toLowerCase());
-                    user.setEmail(emailInput);
-                    user.setPassword(passInput);
+                    User newUser = realm.createObject(User.class, nameInput.toLowerCase());
+                    newUser.setEmail(emailInput);
+                    newUser.setPassword(passInput);
                 });
 
-                SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
-                prefs.edit().putString("logged_in_username", nameInput.toLowerCase()).apply();
+                Toast.makeText(this, "Registrasi berhasil!", Toast.LENGTH_SHORT).show();
 
-                Toast.makeText(this, "Registrasi berhasil", Toast.LENGTH_SHORT).show();
-                toLogin();
+                // Pindah ke login
+                startActivity(new Intent(this, login_Activity.class));
+                finish();
             }
         });
 
-        loginLink.setOnClickListener(view -> {
+        loginLink.setOnClickListener(v -> {
             startActivity(new Intent(this, login_Activity.class));
+            finish();
         });
-    }
-
-    public void toLogin() {
-        startActivity(new Intent(this, login_Activity.class));
-        finish();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (realm != null && !realm.isClosed()) realm.close();
+        if (realm != null) realm.close();
     }
 }
