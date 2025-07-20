@@ -2,231 +2,44 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_notifications"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/navigation_notifications"
     tools:context="com.example.pedulipangan.ui.notifications.NotificationFragment">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
+        <!-- Header -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="150dp"
+            android:background="#EBF7DF"
             android:orientation="vertical">
 
-            <!-- Header -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:background="#EBF7DF"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/txvStock"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="45dp"
-                        android:layout_marginTop="60dp"
-                        android:layout_marginBottom="30dp"
-                        android:fontFamily="@font/manrope_extrabold"
-                        android:text="Notifications"
-                        android:textColor="#307331"
-                        android:textSize="40dp" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <!-- Notifikasi Cards -->
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/txvStock"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="20dp">
-
-                <!-- Notifikasi 1 -->
-                <RelativeLayout
-                    android:id="@+id/cardNotif1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    android:background="@drawable/bg_gray_box"
-                    android:padding="16dp"
-                    android:elevation="2dp">
-
-                    <LinearLayout
-                        android:id="@+id/textContainer1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentLeft="true">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Kentang "
-                            android:textStyle="bold"
-                            android:textColor="#307331"
-                            android:textSize="16sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="is going to expire in "
-                            android:textColor="#000000"
-                            android:textSize="16sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="5 days!"
-                            android:textColor="#FF0000"
-                            android:textStyle="bold"
-                            android:textSize="16sp" />
-                    </LinearLayout>
-
-                    <ImageButton
-                        android:id="@+id/btnClose1"
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentTop="true"
-                        android:background="@android:color/transparent"
-                        android:src="@android:drawable/ic_menu_close_clear_cancel"
-                        android:tint="#888888"
-                        android:contentDescription="Close notification"
-                        android:focusable="true"
-                        android:clickable="true"
-                        android:layout_margin="4dp" />
-                </RelativeLayout>
-
-                <!-- Notifikasi 2 -->
-                <RelativeLayout
-                    android:id="@+id/cardNotif2"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    android:background="@drawable/bg_gray_box"
-                    android:padding="16dp"
-                    android:elevation="2dp">
-
-                    <LinearLayout
-                        android:id="@+id/textContainer2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentLeft="true">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Kentang "
-                            android:textStyle="bold"
-                            android:textColor="#307331"
-                            android:textSize="16sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="is going to expire in "
-                            android:textColor="#000000"
-                            android:textSize="16sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="5 days!"
-                            android:textColor="#FF0000"
-                            android:textStyle="bold"
-                            android:textSize="16sp" />
-                    </LinearLayout>
-
-                    <ImageButton
-                        android:id="@+id/btnClose2"
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentTop="true"
-                        android:background="@android:color/transparent"
-                        android:src="@android:drawable/ic_menu_close_clear_cancel"
-                        android:tint="#888888"
-                        android:contentDescription="Close notification"
-                        android:focusable="true"
-                        android:clickable="true"
-                        android:layout_margin="4dp" />
-                </RelativeLayout>
-
-                <!-- Notifikasi 3 -->
-                <RelativeLayout
-                    android:id="@+id/cardNotif3"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    android:background="@drawable/bg_gray_box"
-                    android:padding="16dp"
-                    android:elevation="2dp">
-
-                    <LinearLayout
-                        android:id="@+id/textContainer3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentLeft="true">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Kentang "
-                            android:textStyle="bold"
-                            android:textColor="#307331"
-                            android:textSize="16sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="is going to expire in "
-                            android:textColor="#000000"
-                            android:textSize="16sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="5 days!"
-                            android:textColor="#FF0000"
-                            android:textStyle="bold"
-                            android:textSize="16sp" />
-                    </LinearLayout>
-
-                    <ImageButton
-                        android:id="@+id/btnClose3"
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentTop="true"
-                        android:background="@android:color/transparent"
-                        android:src="@android:drawable/ic_menu_close_clear_cancel"
-                        android:tint="#888888"
-                        android:contentDescription="Close notification"
-                        android:focusable="true"
-                        android:clickable="true"
-                        android:layout_margin="4dp" />
-                </RelativeLayout>
-
-            </LinearLayout>
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="30dp"
+                android:fontFamily="@font/manrope_extrabold"
+                android:text="Notifications"
+                android:textColor="#307331"
+                android:textSize="40sp" />
         </LinearLayout>
-    </ScrollView>
+
+        <!-- RecyclerView untuk notifikasi -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerNotif"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="20dp"
+            tools:listitem="@layout/card_notifikasi" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

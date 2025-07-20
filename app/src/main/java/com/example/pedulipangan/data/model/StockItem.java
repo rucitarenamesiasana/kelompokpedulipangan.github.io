@@ -1,29 +1,36 @@
 package com.example.pedulipangan.data.model;
 
-import io.realm.RealmObject;
-import io.realm.annotations.PrimaryKey;
-
 import java.util.Date;
 import java.util.UUID;
+
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
 public class StockItem extends RealmObject {
 
     @PrimaryKey
-    private String id = UUID.randomUUID().toString();
+    private String id;
+
     private String category;
     private int amount;
     private Date expiryDate;
-    private Date usedDate;
-    private String userId;
+    private Date usedDate;        // Tanggal dipakai (jika ada)
+    private String userId;        // Pemilik stok (user login)
 
-    // Getter & Setter untuk userId
-    public String getUserId() {
-        return userId;
+    // Status saat ini: "available", "used", "expired", "wasted", "deleted"
+    private String status;
+
+    private Date createdAt;       // Tanggal dibuat
+    private Date deletedAt;       // Tanggal dihapus (jika status == "deleted")
+
+    // Constructor: set ID, tanggal dibuat, dan status default "available"
+    public StockItem() {
+        this.id = UUID.randomUUID().toString();
+        this.createdAt = new Date();
+        this.status = "available";
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
+    // === Getter & Setter ===
 
     public String getId() {
         return id;
@@ -65,4 +72,35 @@ public class StockItem extends RealmObject {
         this.usedDate = usedDate;
     }
 
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Date getDeletedAt() {
+        return deletedAt;
+    }
+
+    public void setDeletedAt(Date deletedAt) {
+        this.deletedAt = deletedAt;
+    }
 }
