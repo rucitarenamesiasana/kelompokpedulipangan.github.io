@@ -1,7 +1,6 @@
 package com.example.pedulipangan.data.model;
 
 import java.util.Date;
-import java.util.UUID;
 
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
@@ -10,28 +9,17 @@ public class StockItem extends RealmObject {
 
     @PrimaryKey
     private String id;
+    private String name;
+    private String userId;
+    private Date expiryDate;
+    private Date usedDate;
+
+    private int amount;
 
     private String category;
-    private int amount;
-    private Date expiryDate;
-    private Date usedDate;        // Tanggal dipakai (jika ada)
-    private String userId;        // Pemilik stok (user login)
+    private boolean notificationDiscarded;
 
-    // Status saat ini: "available", "used", "expired", "wasted", "deleted"
-    private String status;
-
-    private Date createdAt;       // Tanggal dibuat
-    private Date deletedAt;       // Tanggal dihapus (jika status == "deleted")
-
-    // Constructor: set ID, tanggal dibuat, dan status default "available"
-    public StockItem() {
-        this.id = UUID.randomUUID().toString();
-        this.createdAt = new Date();
-        this.status = "available";
-    }
-
-    // === Getter & Setter ===
-
+    // Getter dan Setter
     public String getId() {
         return id;
     }
@@ -40,20 +28,20 @@ public class StockItem extends RealmObject {
         this.id = id;
     }
 
-    public String getCategory() {
-        return category;
+    public String getName() {
+        return name;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getAmount() {
-        return amount;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setAmount(int amount) {
-        this.amount = amount;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public Date getExpiryDate() {
@@ -68,39 +56,32 @@ public class StockItem extends RealmObject {
         return usedDate;
     }
 
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
     public void setUsedDate(Date usedDate) {
         this.usedDate = usedDate;
     }
 
-    public String getUserId() {
-        return userId;
+    public boolean isNotificationDiscarded() {
+        return notificationDiscarded;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setNotificationDiscarded(boolean notificationDiscarded) {
+        this.notificationDiscarded = notificationDiscarded;
     }
 
-    public String getStatus() {
-        return status;
+    public int getAmount() {
+        return amount;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Date getDeletedAt() {
-        return deletedAt;
-    }
-
-    public void setDeletedAt(Date deletedAt) {
-        this.deletedAt = deletedAt;
-    }
 }

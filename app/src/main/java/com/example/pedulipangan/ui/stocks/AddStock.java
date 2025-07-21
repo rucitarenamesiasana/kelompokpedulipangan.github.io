@@ -60,9 +60,9 @@ public class AddStock extends DialogFragment {
         super.onViewCreated(view, savedInstanceState);
         realm = Realm.getDefaultInstance();
 
-        setupCategorySpinner();// Isi data dropdown kategori
-        setupDatePicker();       // Siapkan logika pemilihan tanggal
-        setupButton();           // Siapkan tombol Done
+        setupCategorySpinner();
+        setupDatePicker();
+        setupButton();
     }
 
     private void setupCategorySpinner() {
@@ -122,29 +122,24 @@ public class AddStock extends DialogFragment {
                 return;
             }
 
-            // Cek apakah tanggal yang dipilih sudah lewat
             Date today = new Date();
             if (expiryDate.before(today)) {
                 Toast.makeText(getContext(), "Tanggal kadaluarsa sudah lewat. Barang akan ditandai sebagai wasted.", Toast.LENGTH_LONG).show();
             }
 
-            // Ambil userId dari SharedPreferences
             SharedPreferences prefs = requireContext().getSharedPreferences("prefs", Context.MODE_PRIVATE);
             String userId = prefs.getString("logged_in_username", "User");
 
-            // Simpan ke database Realm
+            // Simpan data ke Realm
             realm.executeTransaction(r -> {
                 StockItem item = r.createObject(StockItem.class, UUID.randomUUID().toString());
                 item.setCategory(category);
+                item.setName(category); // <-- INI BARIS TAMBAHAN untuk menghindari null
                 item.setAmount(amount);
                 item.setExpiryDate(expiryDate);
                 item.setUserId(userId);
-
-                // Tidak perlu set wasted sekarang, karena sudah dihitung otomatis di HomeFragment
-                // Tapi kamu bisa tambahkan logika tambahan jika mau tandai manual
             });
 
-            // Notify listener agar HomeFragment bisa refresh
             if (listener != null) {
                 listener.onStockAdded();
             }
@@ -152,8 +147,6 @@ public class AddStock extends DialogFragment {
             dismiss();
         });
     }
-
-
 
     @Override
     public void onDestroyView() {

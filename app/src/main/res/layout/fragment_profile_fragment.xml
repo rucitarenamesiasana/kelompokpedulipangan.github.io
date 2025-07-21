@@ -122,7 +122,7 @@
             android:layout_width="350dp"
             android:layout_height="50dp"
             android:background="@drawable/button_green_rounded"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="30dp"
             android:layout_marginLeft="55dp"
             android:textSize="18dp"
             android:fontFamily="@font/manrope_extrabold"

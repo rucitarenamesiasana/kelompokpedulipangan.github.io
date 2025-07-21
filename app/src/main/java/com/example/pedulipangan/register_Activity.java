@@ -12,6 +12,7 @@ import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 
 import io.realm.Realm;
+import io.realm.RealmConfiguration;
 
 import com.example.pedulipangan.data.model.User;
 import com.example.pedulipangan.ui.login.login_Activity;
@@ -30,7 +31,17 @@ public class register_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        // Realm init
+        // Realm
+
+        Realm.init(this); // ✅ pastikan ada ini dulu
+
+        RealmConfiguration config = new RealmConfiguration.Builder()
+                .allowWritesOnUiThread(true)
+                .deleteRealmIfMigrationNeeded() // optional: buat dev biar gampang
+                .build();
+
+        Realm.setDefaultConfiguration(config);
+
         Realm.init(getApplicationContext());
         realm = Realm.getDefaultInstance();
 

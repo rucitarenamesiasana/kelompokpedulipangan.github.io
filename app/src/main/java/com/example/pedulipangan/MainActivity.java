@@ -11,6 +11,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.HashSet;
 import java.util.Set;
 
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
@@ -21,6 +24,13 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        Realm.init(this);
+        RealmConfiguration config = new RealmConfiguration.Builder()
+                .allowWritesOnUiThread(true)  // ← tambahkan baris ini
+                .deleteRealmIfMigrationNeeded() // kalau kamu pakai ini juga
+                .build();
+        Realm.setDefaultConfiguration(config);
 
         // ✅ Set Toolbar sebagai ActionBar
         setSupportActionBar(binding.toolbar);

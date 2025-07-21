@@ -8,7 +8,6 @@
     android:id="@+id/navigation_home"
     tools:context=".ui.home.HomeFragment">
 
-
     <!-- Top Curve -->
     <View
         android:id="@+id/top_curve"
@@ -248,7 +247,7 @@
 
     <!-- Notifications List -->
     <LinearLayout
-        android:id="@+id/notificationList"
+        android:id="@+id/notif_preview_container"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -257,39 +256,8 @@
         app:layout_constraintTop_toBottomOf="@id/notificationHeader"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginHorizontal="16dp">
+        android:layout_marginHorizontal="16dp"
+        android:divider="?android:attr/dividerHorizontal"
+        android:showDividers="middle"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:background="#FFFFFF"
-            android:text="Wortel is going to expire in 1 day!"
-            android:textColor="#000000"
-            android:textSize="14sp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="@font/manrope_bold"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:background="#FFFFFF"
-            android:text="Jamur is going to expire in 2 days!"
-            android:textColor="#000000"
-            android:textSize="14sp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="@font/manrope_bold"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:background="#FFFFFF"
-            android:text="Jamur is going to expire in 2 days!"
-            android:textColor="#000000"
-            android:textSize="14sp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="@font/manrope_bold"/>
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
