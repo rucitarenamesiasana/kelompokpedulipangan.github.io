@@ -65,3 +65,11 @@ https://shorturl.at/92WSr
 
 Melalui Clone Repository: 
 git clone https://github.com/rucitarenamesiasana/kelompokpedulipangan.github.io.git
+
+#Anggota
+
+Amanda Evania
+Cindy Wijaya
+Janice Tjuarsa
+Michelle Angela Chai
+Rucita Rena Mesiasana
