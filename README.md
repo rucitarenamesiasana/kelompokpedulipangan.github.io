@@ -69,7 +69,11 @@ git clone https://github.com/rucitarenamesiasana/kelompokpedulipangan.github.io.
 #Anggota
 
 Amanda Evania
+
 Cindy Wijaya
+
 Janice Tjuarsa
+
 Michelle Angela Chai
+
 Rucita Rena Mesiasana
