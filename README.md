@@ -59,7 +59,7 @@ Meningkatkan kepedulian terhadap pemborosan makanan dengan:
 
 #Video Penggunaaan
 
-https://shorturl.at/92WSr
+https://shorturl.at/nDRAg
 
 #Cara Instalasi
 
